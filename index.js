@@ -1,16 +1,13 @@
 //detects button clicks
-
-for(var x = 0; x < $(".drum").length; x++){
-    $(".drum")[x].addEventListener("click", function () {
-        var buttonInnerHTML = this.innerHTML;
-        makeSound(buttonInnerHTML)
-        animation(buttonInnerHTML)
-    });
-}
+$(".drum").click(function () {
+    var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML)
+    animation(buttonInnerHTML)
+});
 
 //detects key presses
 
-document.addEventListener("keydown", function(event){
+$(document).keydown(function(event){
     makeSound(event.key)
     animation(event.key)
 });
@@ -62,10 +59,9 @@ function makeSound(key){
 }
 
 function animation(currentKey) {
-
-    var activeButton = $("." + currentKey);
-    activeButton.classList.add("pressed");
+    $("." + currentKey).addClass("pressed")
+    
     setTimeout(function() {
-        activeButton.classList.remove("pressed");
+        $("." + currentKey).removeClass("pressed")
     }, 100)
 }

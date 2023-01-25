@@ -1,7 +1,7 @@
 //detects button clicks
 
-for(var x = 0; x < document.querySelectorAll(".drum").length; x++){
-    document.querySelectorAll(".drum")[x].addEventListener("click", function () {
+for(var x = 0; x < $(".drum").length; x++){
+    $(".drum")[x].addEventListener("click", function () {
         var buttonInnerHTML = this.innerHTML;
         makeSound(buttonInnerHTML)
         animation(buttonInnerHTML)
@@ -63,7 +63,7 @@ function makeSound(key){
 
 function animation(currentKey) {
 
-    var activeButton = document.querySelector("." + currentKey);
+    var activeButton = $("." + currentKey);
     activeButton.classList.add("pressed");
     setTimeout(function() {
         activeButton.classList.remove("pressed");
